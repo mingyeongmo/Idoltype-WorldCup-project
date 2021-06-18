@@ -1,13 +1,13 @@
 import itzy from "./idol/itzy.json";
-import Header from "./Header";
-import Img1 from "./Img1";
-
+import Header from "./components/Header";
+import Contents from "./components/Contents";
+import './Style/body.css';
 
 function App() {
   return (
-    <div>
+    <div className="body">
       <Header />
-      <Img1 />
+      <Contents />
     </div>
   );
 }

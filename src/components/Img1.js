@@ -1,11 +1,12 @@
 import React from 'react';
 import ryujin from '../imgs/itzyimgs/ryujin.jpeg';
+import '../Style/img.css';
 
 
 const Img1 = ({name}) => {
     return (
         <div>
-            <img src={ryujin}/>
+            <img className='img' src={ryujin}/>
         </div>
     );
 };

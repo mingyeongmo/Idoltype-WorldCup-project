@@ -23,19 +23,48 @@ const items = [
 
 
 const Contents = () => {
+    const [idols, setIdols] = useState([]);
+
+    const [displays, setDisplays] = useState([]);
+
+    const [winners, setWinners] = useState([]);
+
+    useEffect(() => {
+        items.sort(()=> Math.random() - 0.5);
+        setIdols(items);
+        setDisplays([items[0],items[1]]);
+    }, [])
+
+    const choice = (idol) => () => {
+        if(idols.length <= 2){
+            if(winners.length === 0){
+                setDisplays([idol]);
+            } else {
+                let updatedidol = [...winners, idol];
+                setIdols(updatedidol);
+                setDisplays([updatedidol[0], updatedidol[1]]);
+                setWinners([]);
+            }
+        }else if (idols.length > 2){
+            setWinners([...winners, idol])
+            setDisplays([idols[2], idols[3]])
+            setIdols(idols.slice(2))
+        }
+    };
+
     return (
         <>
                 <Vscontent>
                     <FlexBox>
                         <h1 className="title">당신의 이상형을 찾아라</h1>
-                        <div className="Fight1">
-                            <img className='img' src={require("../imgs/itzyimgs/yeji.jpeg").default}/>
-                            <div className='name'>예지</div>
-                        </div>
-                        <div className="Fight1">
-                            <img className='img' src={require("../imgs/itzyimgs/yuna.jpeg").default} />
-                            <div className='name'>유나</div>
-                        </div>
+                        {displays.map(d => {
+                            return (
+                                <div className="Fight1" key={d.name} onClick={choice(d)}>
+                                    <img className='img' src={d.src.default}/>
+                                    <div className='name'>{d.name}</div>
+                                </div>
+                            )
+                        })}
                     </FlexBox>
                 </Vscontent>
                 

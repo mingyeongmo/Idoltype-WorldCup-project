@@ -30,23 +30,24 @@ const Contents = () => {
     const [winners, setWinners] = useState([]);
 
     useEffect(() => {
-        items.sort(()=> Math.random() - 0.5);
-        setIdols(items);
-        setDisplays([items[0],items[1]]);
-    }, [])
+        items.sort(()=> Math.random() - 0.5); // 아이템 배열을 랜덤으로 정리 해줌.
+        setIdols(items); // idols의 상태가 아이템으로 설정됨.
+        setDisplays([items[0],items[1]]); // 디스플레이에 보여지는 화면이 첫번째와 두번째 값.
+    }, []); //<- deps배열이고 null이면 맨 처음 화면이 나타날때만 useEffect 함수가 호출된다.
 
     const choice = (idol) => () => {
-        if(idols.length <= 2){
-            if(winners.length === 0){
-                setDisplays([idol]);
+        if(idols.length <= 2){ // 아이돌의 길이(남은 배열길이)가 2보다 작거나 같다면(최종 후보)
+            if(winners.length === 0){ // 우승자의 길이가 0이라면
+                setDisplays([idol]); // 화면에 남은 최종 아이돌 출력.
             } else {
-                let updatedidol = [...winners, idol];
+                let updatedidol = [...winners, idol]; // let(변수 재할당가능,재선언은 불가)
+                // 
                 setIdols(updatedidol);
                 setDisplays([updatedidol[0], updatedidol[1]]);
                 setWinners([]);
             }
-        }else if (idols.length > 2){
-            setWinners([...winners, idol])
+        }else if (idols.length > 2){ // 아이돌의 길이가 2보다 크다면
+            setWinners([...winners, idol]) // 남은 위너와 아이돌
             setDisplays([idols[2], idols[3]])
             setIdols(idols.slice(2))
         }

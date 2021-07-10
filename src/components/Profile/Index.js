@@ -1,9 +1,34 @@
-// import Yeji from './Idols/Yeji';
+import Yejisvg from './Idols/Yeji';
 
-// function Index() {
-//     <>
-//     <Yeji />
-//     </>
-// }
+const items = [
+    {
+        name:"유나",
+        src:require("../../Assets/itzyimgs/yuna.jpeg")
+    },
+    {
+        name:"예지",
+        src:require("../../Assets/itzyimgs/yeji1.svg")
+    },
+    {
+        name:"류진",
+        src:require("../../Assets/itzyimgs/ryujin.jpeg")
+    },
+    {
+        name:"채령",
+        src:require("../../Assets/itzyimgs/chaeryeong.jpeg")
+    },
+]
 
-// export default Index;
+
+function IdolList() {
+    
+    
+    return (
+        <>
+        
+        </>
+    )
+
+}
+
+export default IdolList;

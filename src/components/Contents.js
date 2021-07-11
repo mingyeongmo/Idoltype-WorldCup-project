@@ -3,27 +3,8 @@ import React,{useState, useEffect} from 'react';
 // import { Vscontent } from './Style/ContentsSt';
 // import { Title } from './Style/ContentsSt';
 import * as S from './Style/ContentsSt';
-
-
-const items = [
-    {
-        name:"유나",
-        src:require("../Assets/itzyimgs/yuna.jpeg")
-    },
-    {
-        name:"예지",
-        src:require("../Assets/itzyimgs/yeji.jpeg")
-    },
-    {
-        name:"류진",
-        src:require("../Assets/itzyimgs/ryujin.jpeg")
-    },
-    {
-        name:"채령",
-        src:require("../Assets/itzyimgs/chaeryeong.jpeg")
-    },
-]
-
+//import { ReactComponent as Yeji1 } from '../Assets/itzyimgs/yeji.svg';
+import Items from '../components/Profile/Index';
 
 const Contents = () => {
     const [idols, setIdols] = useState([]);
@@ -33,9 +14,9 @@ const Contents = () => {
     const [winners, setWinners] = useState([]);
 
     useEffect(() => {
-        items.sort(()=> Math.random() - 0.5);
-        setIdols(items);
-        setDisplays([items[0],items[1]]);
+        Items.sort(()=> Math.random() - 0.5);
+        setIdols(Items);
+        setDisplays([Items[0],Items[1]]);
     }, []);
 
     const choice = (idol) => () => {

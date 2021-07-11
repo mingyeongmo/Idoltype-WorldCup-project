@@ -1,5 +1,3 @@
-import Yejisvg from './Idols/Yeji';
-
 const items = [
     {
         name:"유나",
@@ -19,16 +17,4 @@ const items = [
     },
 ]
 
-
-function IdolList() {
-    
-    
-    return (
-        <>
-        
-        </>
-    )
-
-}
-
-export default IdolList;
+export default items;

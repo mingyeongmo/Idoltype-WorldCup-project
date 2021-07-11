@@ -1,10 +1,10 @@
-import { Yeji } from '../../../Assets/itzyimgs/yeji1.svg';
-function yeji() {
-    <>
-    <Yeji />
-    </>
-}
+// import Yeji1 from '../../../Assets/itzyimgs/yeji1.svg';
+// function Yejisvg() {
+//     <>
+//     <Yeji1 />
+//     </>
+// }
 
 
-export default Yeji;
+// export default Yejisvg;
 

@@ -1,4 +1,4 @@
-import Contents from "./components/Contents";
+import Contents from "./components/Contents/Contents";
 import {createGlobalStyle} from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`

@@ -77,6 +77,3 @@ export const Modal_Select = styled.select`
     height: 30px;
 `;
 
-export const Modal_Option = styled.option`
-    
-`;

@@ -7,7 +7,7 @@ import Modal from '../Modal/Modal';
 
 const Contents = () => {
     const [modalOpen, setModalOpen] = useState(true);
-
+    const [value, setValue] = useState();
 
     const closeModal = () => {
         setModalOpen(false);
@@ -21,9 +21,14 @@ const Contents = () => {
     const [winners, setWinners] = useState([]); //선택한 값 저장
 
     useEffect(() => {
-        Items.sort(()=> Math.random() - 0.5);
-        setIdols(Items);
-        setDisplays([Items[0],Items[1]]);
+        const Garray = Items;
+        
+        console.log(Garray.length);
+        Garray.sort(()=> Math.random() - Math.random());
+        Garray.length = 4;
+        console.log(Garray.length);
+        setIdols(Garray);
+        setDisplays([Garray[0],Garray[1]]);
     }, []);
 
 // choice함수가 월드컵 토너먼트임
@@ -46,7 +51,7 @@ const Contents = () => {
 
     return (
         <>
-                <Modal open = {modalOpen} close={closeModal} header="이상형월드컵"/>
+                <Modal open = {modalOpen} close={closeModal} header="이상형월드컵" />
                 <S.Vscontent> {/* style*/}
                     <S.FlexBox> {/* style*/}
                         <S.Title>당신의 이상형을 찾아라</S.Title>

@@ -1,6 +1,7 @@
 import React from 'react';
 import "./modal.css"
 import * as S from './ModalSt';
+import Option from './M_Option';
 
 const Modal = (props) => {
     // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
@@ -18,9 +19,7 @@ const Modal = (props) => {
                 </S.Modal_Header>
                 <S.Modal_Main>
                     <S.Modal_Select>
-                        <S.Modal_Option value="16">16강</S.Modal_Option>
-                        <S.Modal_Option value="8" selected>8강</S.Modal_Option>
-                        <S.Modal_Option value="4">4강</S.Modal_Option>
+                        <Option />
                     </S.Modal_Select>
                 </S.Modal_Main>
                 <S.Modal_Footer>

@@ -73,7 +73,7 @@ export const Modal_stbtn = styled.button`
 `;
 
 export const Modal_Select = styled.select`
-    width:400px;
+    width: 400px;
     height: 30px;
 `;
 

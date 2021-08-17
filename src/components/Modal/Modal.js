@@ -18,9 +18,7 @@ const Modal = (props) => {
                     {header}
                 </S.Modal_Header>
                 <S.Modal_Main>
-                    <S.Modal_Select>
-                        <Option />
-                    </S.Modal_Select>
+                    <Option />
                 </S.Modal_Main>
                 <S.Modal_Footer>
                     <S.Modal_stbtn onClick={close}>게임시작</S.Modal_stbtn>

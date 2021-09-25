@@ -2,17 +2,19 @@ import React,{useState, useEffect} from 'react';
 import * as S from './ContentsSt';
 import Items from '../../Profile/Index';
 import Modal from '../Modal/Modal';
+import {opValue} from '../Modal/M_Option';
 
 
 
 const Contents = () => {
     const [modalOpen, setModalOpen] = useState(true);
-    const [value, setValue] = useState();
+    
 
     const closeModal = () => {
         setModalOpen(false);
     }
 
+    
 
     const [idols, setIdols] = useState([]);
 
@@ -20,12 +22,14 @@ const Contents = () => {
 
     const [winners, setWinners] = useState([]); //선택한 값 저장
 
+    
+
     useEffect(() => {
         const Garray = Items;
         
         console.log(Garray.length);
         Garray.sort(()=> Math.random() - Math.random());
-        Garray.length = 4;
+        Garray.length = 16;
         console.log(Garray.length);
         setIdols(Garray);
         setDisplays([Garray[0],Garray[1]]);

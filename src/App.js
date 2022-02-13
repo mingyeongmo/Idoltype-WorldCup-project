@@ -1,5 +1,7 @@
 import Contents from "./components/Contents/Contents";
-import {createGlobalStyle} from 'styled-components';
+import { createGlobalStyle } from "styled-components";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -12,10 +14,11 @@ const GlobalStyle = createGlobalStyle`
 function App() {
   return (
     <>
-    <GlobalStyle />
-      <Contents />
+      <GlobalStyle />
+      <Provider store={store}>
+        <Contents />
+      </Provider>
     </>
-    
   );
 }
 

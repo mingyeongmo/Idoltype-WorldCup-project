@@ -4,7 +4,7 @@ const initialState = {
   round: 0,
 };
 
-const reducer = (state = initialState, action) => {
+const roundReducer = (state = initialState, action) => {
   switch (action.type) {
     case ROUND_OF_16:
       return {
@@ -26,4 +26,4 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-export default reducer;
+export default roundReducer;

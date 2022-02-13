@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import reducer from "./round/reducer";
+import roundReducer from "./round/reducer";
 
 const rootReducer = combineReducers({
-  reducer,
+  rounds: roundReducer,
 });
 
 export default rootReducer;

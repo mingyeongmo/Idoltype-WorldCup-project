@@ -1,7 +1,7 @@
 import { ROUND_OF_16, ROUND_OF_8, ROUND_OF_4 } from "./types";
 
 const initialState = {
-  round: 0,
+  round: 8,
 };
 
 const roundReducer = (state = initialState, action) => {

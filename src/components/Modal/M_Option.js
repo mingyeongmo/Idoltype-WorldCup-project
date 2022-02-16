@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Modal_Select } from "./ModalSt";
 import { connect } from "react-redux";
 import {
@@ -13,20 +13,16 @@ const M_Option = ({
   Choice_ROUND_OF_4,
 }) => {
   const handleValue = (e) => {
-    // setValue(e.target.value);
-    // console.log("hi");
     // console.log(e.target.value);
     const roundValue = e.target.value;
 
-    if (roundValue == "16") {
-      console.log("I'm 16");
-      Choice_ROUND_OF_16();
-    } else if (roundValue == "8") {
-      console.log("I'm 8");
-      Choice_ROUND_OF_8();
-    } else if (roundValue == "4") {
-      console.log("I'm 4");
-      Choice_ROUND_OF_4();
+    switch (roundValue) {
+      case "16":
+        return Choice_ROUND_OF_16();
+      case "8":
+        return Choice_ROUND_OF_8();
+      case "4":
+        return Choice_ROUND_OF_4();
     }
   };
 

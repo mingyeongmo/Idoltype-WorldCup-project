@@ -20,11 +20,11 @@ const Contents = ({ round, Choice_ROUND_OF_16 }) => {
 
   useEffect(() => {
     const Garray = Items;
-
+    console.log(round);
     console.log(Garray.length);
     Garray.sort(() => Math.random() - Math.random());
-    Garray.length = 16;
-    console.log(Garray.length);
+    Garray.length = round;
+    console.log("라운드 수 : ", Garray.length);
     setIdols(Garray);
     setDisplays([Garray[0], Garray[1]]);
   }, [round]);

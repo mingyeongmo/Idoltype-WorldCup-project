@@ -10,15 +10,21 @@ const Contents = ({ round }) => {
     setModalOpen(false);
   };
 
+  const [showRound, setShowRound] = useState("");
+
+  const [nowRound, setNowRound] = useState([]);
+
   const [idols, setIdols] = useState([]);
   const [displays, setDisplays] = useState([]);
   const [winners, setWinners] = useState([]); //선택한 값 저장
 
   useEffect(() => {
-    // const Garray = Items;
     let Garray = JSON.parse(JSON.stringify(Items));
     console.log(Garray, Garray.length);
     Garray.length = round;
+    setNowRound(round);
+    setShowRound(round + "강");
+
     console.log(Garray, Garray.length);
     console.log("round: ", round);
     console.log("라운드 수 : ", Garray.length);
@@ -31,6 +37,15 @@ const Contents = ({ round }) => {
   }, [round]);
   // choice함수가 월드컵 토너먼트임
   const choice = (idol) => () => {
+    setNowRound((num) => num - 1);
+    if (nowRound == 9) {
+      setShowRound("8강");
+    } else if (nowRound == 5) {
+      setShowRound("4강");
+    } else if (nowRound == 3) {
+      setShowRound("결승전");
+    }
+
     if (idols.length <= 2) {
       // 남은 아이돌 수가 2보다 작거나 같을때
       if (winners.length === 0) {
@@ -52,7 +67,8 @@ const Contents = ({ round }) => {
   };
   return (
     <>
-      <p>라운드 수 : {round}</p>
+      <p>라운드 수 : {nowRound}</p>
+      <p>라운드 수 : {showRound}</p>
       <Modal open={modalOpen} close={closeModal} header="이상형월드컵" />
       <S.Vscontent>
         {" "}

@@ -17,7 +17,9 @@ const Modal = (props) => {
             <Option />
           </S.Modal_Main>
           <S.Modal_Footer>
-            <S.Modal_stbtn onClick={close}>게임시작</S.Modal_stbtn>
+            <div className="hi">
+              <S.Modal_stbtn onClick={close}>게임시작</S.Modal_stbtn>
+            </div>
           </S.Modal_Footer>
         </S.Modal_Section>
       ) : null}

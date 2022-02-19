@@ -3,37 +3,36 @@ import * as S from "./ContentsSt";
 import Items from "../../Profile/Index";
 import Modal from "../Modal/Modal";
 import { connect } from "react-redux";
-import { Choice_ROUND_OF_16 } from "../../redux/round/actions";
 
-const Contents = ({ round, Choice_ROUND_OF_16 }) => {
+const Contents = ({ round }) => {
   const [modalOpen, setModalOpen] = useState(true);
-
   const closeModal = () => {
     setModalOpen(false);
   };
 
   const [idols, setIdols] = useState([]);
-
   const [displays, setDisplays] = useState([]);
-
   const [winners, setWinners] = useState([]); //선택한 값 저장
 
   useEffect(() => {
-    const Garray = Items;
-    console.log(round);
-    console.log(Garray.length);
-    Garray.sort(() => Math.random() - Math.random());
+    // const Garray = Items;
+    let Garray = JSON.parse(JSON.stringify(Items));
+    console.log(Garray, Garray.length);
     Garray.length = round;
+    console.log(Garray, Garray.length);
+    console.log("round: ", round);
+    console.log("라운드 수 : ", Garray.length);
+
+    Garray.sort(() => Math.random() - Math.random());
+
     console.log("라운드 수 : ", Garray.length);
     setIdols(Garray);
     setDisplays([Garray[0], Garray[1]]);
   }, [round]);
-
   // choice함수가 월드컵 토너먼트임
   const choice = (idol) => () => {
     if (idols.length <= 2) {
       // 남은 아이돌 수가 2보다 작거나 같을때
-
       if (winners.length === 0) {
         // 선택받은 사람의 길이 === 0 (1)
         setDisplays([idol]); // 아이돌 보여주기
@@ -51,13 +50,9 @@ const Contents = ({ round, Choice_ROUND_OF_16 }) => {
       setIdols(idols.slice(2)); // 아이돌설정을 아이돌배열 3번째 부터 끝까지 (3,4)
     }
   };
-
   return (
     <>
-      <div>
-        <p>라운드 수 : {round}</p>
-        <button onClick={() => Choice_ROUND_OF_16()}>라운드 수 늘리기</button>
-      </div>
+      <p>라운드 수 : {round}</p>
       <Modal open={modalOpen} close={closeModal} header="이상형월드컵" />
       <S.Vscontent>
         {" "}
@@ -79,21 +74,18 @@ const Contents = ({ round, Choice_ROUND_OF_16 }) => {
     </>
   );
 };
-
 const mapStateToProps = ({ rounds }) => {
   return {
     round: rounds.round,
   };
 };
 
+export default connect(mapStateToProps)(Contents);
 // const mapDispatchToProps = (dispatch) => {
 //   return {
 //     Choice_ROUND_OF_16: () => dispatch(Choice_ROUND_OF_16()),
 //   };
 // };
-
-const mapDispatchToProps = {
-  Choice_ROUND_OF_16,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Contents);
+// const mapDispatchToProps = {
+//   Choice_ROUND_OF_16,
+// };

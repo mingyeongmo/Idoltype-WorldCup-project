@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal_Select } from "./ModalSt";
+import { ModalSelect } from "./ModalSt";
 import { connect } from "react-redux";
 import {
   Choice_ROUND_OF_16,
@@ -15,7 +15,6 @@ const M_Option = ({
   const handleValue = (e) => {
     // console.log(e.target.value);
     const roundValue = e.target.value;
-
     switch (roundValue) {
       case "16":
         return Choice_ROUND_OF_16();
@@ -27,7 +26,7 @@ const M_Option = ({
   };
 
   return (
-    <Modal_Select className="selected" onChange={handleValue}>
+    <ModalSelect className="selected" onChange={handleValue}>
       <option value="16" key="1">
         16강
       </option>
@@ -37,7 +36,7 @@ const M_Option = ({
       <option value="4" key="3">
         4강
       </option>
-    </Modal_Select>
+    </ModalSelect>
   );
 };
 

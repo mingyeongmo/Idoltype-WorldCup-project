@@ -26,6 +26,7 @@ const Contents = ({ round }) => {
     setNowRound(round);
     setShowRound(round + "강");
     setHalfRound("/" + round / 2);
+    setReverseCount(1);
 
     console.log(Garray, Garray.length);
     console.log("round: ", round);
@@ -39,16 +40,25 @@ const Contents = ({ round }) => {
   }, [round]);
   // choice함수가 월드컵 토너먼트임
   const choice = (idol) => () => {
-    setNowRound((num) => num - 1);
+    if (showRound !== "결승전") {
+      setReverseCount((num) => num + 1);
+      setNowRound((num) => num - 1);
+    } else {
+      setReverseCount("");
+    }
+
     if (nowRound == 9) {
       setShowRound("8강");
       setHalfRound("/4");
+      setReverseCount(1);
     } else if (nowRound == 5) {
       setShowRound("4강");
       setHalfRound("/2");
+      setReverseCount(1);
     } else if (nowRound == 3) {
       setShowRound("결승전");
       setHalfRound("");
+      setReverseCount("");
     }
 
     if (idols.length <= 2) {
@@ -81,7 +91,8 @@ const Contents = ({ round }) => {
           {" "}
           {/* style*/}
           <S.Title>
-            당신의 이상형을 찾아라 {showRound} {halfRound}
+            당신의 이상형을 찾아라 {showRound} {reverseCount}
+            {halfRound}
           </S.Title>
           {displays.map((d) => {
             return (

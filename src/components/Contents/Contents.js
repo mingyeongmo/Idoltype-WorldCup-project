@@ -13,7 +13,8 @@ const Contents = ({ round }) => {
   const [showRound, setShowRound] = useState("");
 
   const [nowRound, setNowRound] = useState([]);
-
+  const [reverseCount, setReverseCount] = useState("");
+  const [halfRound, setHalfRound] = useState("");
   const [idols, setIdols] = useState([]);
   const [displays, setDisplays] = useState([]);
   const [winners, setWinners] = useState([]); //선택한 값 저장
@@ -24,6 +25,7 @@ const Contents = ({ round }) => {
     Garray.length = round;
     setNowRound(round);
     setShowRound(round + "강");
+    setHalfRound("/" + round / 2);
 
     console.log(Garray, Garray.length);
     console.log("round: ", round);
@@ -40,10 +42,13 @@ const Contents = ({ round }) => {
     setNowRound((num) => num - 1);
     if (nowRound == 9) {
       setShowRound("8강");
+      setHalfRound("/4");
     } else if (nowRound == 5) {
       setShowRound("4강");
+      setHalfRound("/2");
     } else if (nowRound == 3) {
       setShowRound("결승전");
+      setHalfRound("");
     }
 
     if (idols.length <= 2) {
@@ -68,7 +73,6 @@ const Contents = ({ round }) => {
   return (
     <>
       <p>라운드 수 : {nowRound}</p>
-      <p>라운드 수 : {showRound}</p>
       <Modal open={modalOpen} close={closeModal} header="이상형월드컵" />
       <S.Vscontent>
         {" "}
@@ -76,7 +80,9 @@ const Contents = ({ round }) => {
         <S.FlexBox>
           {" "}
           {/* style*/}
-          <S.Title>당신의 이상형을 찾아라</S.Title>
+          <S.Title>
+            당신의 이상형을 찾아라 {showRound} {halfRound}
+          </S.Title>
           {displays.map((d) => {
             return (
               <S.Fight1 key={d.name} onClick={choice(d)}>

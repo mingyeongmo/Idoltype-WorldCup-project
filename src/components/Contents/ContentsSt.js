@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const Contents = styled.div`
+  background: #181818;
+  width: 100%;
+  height: 100vh;
+`;
+
 export const Vscontent = styled.div`
   display: flex;
   justify-content: center;
@@ -9,18 +15,19 @@ export const FlexBox = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 90%;
-  height: 100vh;
-
-  border: 1px solid;
+  width: 80%;
+  height: 90vh;
 `;
 
 export const Title = styled.h1`
-  position: absolute;
-  background-color: wheat;
+  display: flex;
+  justify-content: center;
+  background-color: black;
   z-index: 2;
-  padding: 0px 20px;
-  padding-bottom: 8px;
+  padding: 10px 0px;
+  margin-bottom: 30px;
+  color: white;
+  font-size: 2rem;
 `;
 
 export const Fight1 = styled.div`

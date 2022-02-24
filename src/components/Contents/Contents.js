@@ -82,28 +82,29 @@ const Contents = ({ round }) => {
   };
   return (
     <>
-      <p>라운드 수 : {nowRound}</p>
       <Modal open={modalOpen} close={closeModal} header="이상형월드컵" />
-      <S.Vscontent>
-        {" "}
-        {/* style*/}
-        <S.FlexBox>
+      <S.Contents>
+        <S.Title>
+          당신의 이상형을 찾아라 {showRound} {reverseCount}
+          {halfRound}
+        </S.Title>
+        <S.Vscontent>
           {" "}
           {/* style*/}
-          <S.Title>
-            당신의 이상형을 찾아라 {showRound} {reverseCount}
-            {halfRound}
-          </S.Title>
-          {displays.map((d) => {
-            return (
-              <S.Fight1 key={d.name} onClick={choice(d)}>
-                <S.Img src={d.src.default} />
-                <S.Name>{d.name}</S.Name>
-              </S.Fight1>
-            );
-          })}
-        </S.FlexBox>
-      </S.Vscontent>
+          <S.FlexBox>
+            {" "}
+            {/* style*/}
+            {displays.map((d) => {
+              return (
+                <S.Fight1 key={d.name} onClick={choice(d)}>
+                  <S.Img src={d.src.default} />
+                  <S.Name>{d.name}</S.Name>
+                </S.Fight1>
+              );
+            })}
+          </S.FlexBox>
+        </S.Vscontent>
+      </S.Contents>
     </>
   );
 };

@@ -4,6 +4,10 @@ const initialState = {
   round: 8,
 };
 
+// export type roundState = Readonly<{
+//   round: number;
+// }>;
+
 const roundReducer = (state = initialState, action) => {
   switch (action.type) {
     case ROUND_OF_16:

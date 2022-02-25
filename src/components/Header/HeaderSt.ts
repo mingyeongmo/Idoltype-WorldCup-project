@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const Header =styled.header`
+export const Header = styled.header`
   position: relative;
   width: 100%;
   height: 50px;

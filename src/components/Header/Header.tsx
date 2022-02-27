@@ -1,10 +1,10 @@
 import React from "react";
-import * as S from "./Style/HeaderSt";
+import * as S from "./HeaderSt";
 
 const Header = () => {
   return (
     <>
-      <title />
+      {/* <title /> */}
       <S.Header>
         <S.Head>당신의 이상형을 고르세요.</S.Head>
       </S.Header>

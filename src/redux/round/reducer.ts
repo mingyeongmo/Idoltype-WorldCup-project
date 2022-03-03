@@ -1,14 +1,14 @@
 import { ROUND_OF_16, ROUND_OF_8, ROUND_OF_4 } from "./types";
 
-const initialState = {
+const initialState: roundState = {
   round: 8,
 };
 
-// export type roundState = Readonly<{
-//   round: number;
-// }>;
+export type roundState = Readonly<{
+  round: number;
+}>;
 
-const roundReducer = (state = initialState, action) => {
+const roundReducer = (state: roundState = initialState, action: any) => {
   switch (action.type) {
     case ROUND_OF_16:
       return {

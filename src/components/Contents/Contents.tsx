@@ -8,14 +8,13 @@ interface Round {
   round: number;
 }
 
-type Image = {
-  src: string;
-  default: string;
-};
+// type Image = {
+//   default: string;
+// };
 
-interface D {
+interface Idol {
   name: string;
-  src: Image;
+  src: string;
 }
 
 const Contents = ({ round }: Round) => {
@@ -53,7 +52,7 @@ const Contents = ({ round }: Round) => {
     setDisplays([Garray[0], Garray[1]]);
   }, [round]);
   // choice함수가 월드컵 토너먼트임
-  const choice = (idol: any) => () => {
+  const choice = (idol: number) => () => {
     if (showRound !== "결승전") {
       setReverseCount((num) => num + 1);
       setNowRound((num) => num - 1);
@@ -65,11 +64,11 @@ const Contents = ({ round }: Round) => {
       setShowRound("8강");
       setHalfRound("/4");
       setReverseCount(1);
-    } else if (nowRound == 5) {
+    } else if (nowRound === 5) {
       setShowRound("4강");
       setHalfRound("/2");
       setReverseCount(1);
-    } else if (nowRound == 3) {
+    } else if (nowRound === 3) {
       setShowRound("결승전");
       setHalfRound("");
       setReverseCount(null);
@@ -94,6 +93,7 @@ const Contents = ({ round }: Round) => {
       setIdols(idols.slice(2)); // 아이돌설정을 아이돌배열 3번째 부터 끝까지 (3,4)
     }
   };
+
   return (
     <>
       <Modal open={modalOpen} close={closeModal} header="이상형월드컵" />
@@ -103,16 +103,14 @@ const Contents = ({ round }: Round) => {
           {halfRound}
         </S.Title>
         <S.Vscontent>
-          {" "}
           {/* style*/}
           <S.FlexBox>
-            {" "}
             {/* style*/}
-            {displays.map((d: any) => {
+            {displays.map((idol: any) => {
               return (
-                <S.Fight1 key={d.name} onClick={choice(d)}>
-                  <S.Img src={d.src.default} />
-                  <S.Name>{d.name}</S.Name>
+                <S.Fight1 key={idol.name} onClick={choice(idol)}>
+                  <S.Img src={idol.src.default} />
+                  <S.Name>{idol.name}</S.Name>
                 </S.Fight1>
               );
             })}

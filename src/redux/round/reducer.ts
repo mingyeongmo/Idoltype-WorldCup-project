@@ -5,7 +5,7 @@ import {
   Choice_ROUND_OF_4,
 } from "./actions";
 
-type roundAction =
+export type roundAction =
   | ReturnType<typeof Choice_ROUND_OF_16>
   | ReturnType<typeof Choice_ROUND_OF_8>
   | ReturnType<typeof Choice_ROUND_OF_4>;

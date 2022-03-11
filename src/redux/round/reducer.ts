@@ -18,10 +18,7 @@ export type roundState = Readonly<{
   round: number;
 }>;
 
-const roundReducer = (
-  state: roundState = initialState,
-  action: roundAction
-) => {
+const roundReducer = (state: roundState = initialState, action: any) => {
   switch (action.type) {
     case ROUND_OF_16:
       return {

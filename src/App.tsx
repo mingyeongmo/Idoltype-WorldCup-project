@@ -1,3 +1,4 @@
+import React from "react";
 import Contents from "./components/Contents/Contents";
 import { createGlobalStyle } from "styled-components";
 import { Provider } from "react-redux";

@@ -3,22 +3,20 @@ import * as S from "./ContentsSt";
 import Items from "../../Profile/Index";
 import Modal from "../Modal/Modal";
 import { connect } from "react-redux";
+// import { RootState } from "../../redux/rootReducer";
 
 interface Round {
   round: number;
 }
 
-// type Image = {
-//   default: string;
+// export type Props = {
+//   open: boolean;
+//   close: () => void;
+//   header: string;
 // };
 
-interface Idol {
-  name: string;
-  src: string;
-}
-
 const Contents = ({ round }: Round) => {
-  const [modalOpen, setModalOpen] = useState(true);
+  const [modalOpen, setModalOpen] = useState<boolean>(true);
   const closeModal = () => {
     setModalOpen(false);
   };
@@ -120,11 +118,17 @@ const Contents = ({ round }: Round) => {
     </>
   );
 };
+
 const mapStateToProps = ({ rounds }: any) => {
   return {
     round: rounds.round,
   };
 };
+// const mapStateToProps = (state: RootState): { round: any } => {
+//   return {
+//     round: state.round,
+//   };
+// };
 
 export default connect(mapStateToProps)(Contents);
 

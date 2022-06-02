@@ -31,23 +31,24 @@ const Contents = ({ round }: Round) => {
   const [winners, setWinners] = useState<number[]>([]); //선택한 값 저장
 
   useEffect(() => {
-    let Garray = JSON.parse(JSON.stringify(Items));
-    console.log(Garray, Garray.length);
-    Garray.length = round;
+    let Cards = JSON.parse(JSON.stringify(Items));
+    // let Cards: any = [...Items];
+    console.log(Cards, Cards.length);
+    Cards.length = round;
     setNowRound(round);
     setShowRound(round + "강");
     setHalfRound("/" + round / 2);
     setReverseCount(1);
 
-    console.log(Garray, Garray.length);
+    console.log(Cards, Cards.length);
     console.log("round: ", round);
-    console.log("라운드 수 : ", Garray.length);
+    console.log("라운드 수 : ", Cards.length);
 
-    Garray.sort(() => Math.random() - Math.random());
+    Cards.sort(() => Math.random() - Math.random());
 
-    console.log("라운드 수 : ", Garray.length);
-    setIdols(Garray);
-    setDisplays([Garray[0], Garray[1]]);
+    console.log("라운드 수 : ", Cards.length);
+    setIdols(Cards);
+    setDisplays([Cards[0], Cards[1]]);
   }, [round]);
   // choice함수가 월드컵 토너먼트임
   const choice = (idol: number) => () => {
